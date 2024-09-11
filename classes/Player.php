@@ -19,10 +19,4 @@ class Player
     }
 }
 
-// // Initialize the player and store it in the session if not already set
-// session_start();
-// if (!isset($_SESSION['player'])) {
-//     $_SESSION['player'] = new Player('', 0);
-// }
-
 $player = new Player('', 0);

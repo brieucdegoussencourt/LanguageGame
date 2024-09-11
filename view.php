@@ -1,19 +1,3 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-require_once 'classes/Player.php';
-require_once 'classes/Data.php';
-require_once 'classes/Word.php';
-
-$word = Word::getWord(); // Call the getWord() method to get a random key
-
-echo $randomKey . '=' . $translation;
-
-// Declare a message variable
-$message = 'test';
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,8 +11,8 @@ $message = 'test';
     <h1>Language Game</h1>
     <h2>Translate the word to English</h2>
     <h3>Player=<?= htmlspecialchars($player->name, ENT_QUOTES, 'UTF-8'); ?> Score=<?= htmlspecialchars($player->score, ENT_QUOTES, 'UTF-8'); ?></h3>
-    <h4>Translate the word: "<?=$word?>" </h4>
-    <form action="classes/Word.php" method="post">
+    <h4>Translate the word: "<?=$randomKey?>"</h4>
+    <form action="classes/word.php" method="post">
         <input type="text" id="answer" name="answer" placeholder="Type your English translation here">
         <button type="submit">Submit</button>
     </form>
