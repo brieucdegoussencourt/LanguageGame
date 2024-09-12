@@ -1,26 +1,18 @@
 <?php
+// Require the correct variable type to be used
+declare(strict_types=1);
 
-// Require the correct variable type to be used (no auto-converting)
-declare(strict_types = 1);
-
-// Show errors so we get helpful information
+// Show errors for debugging
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-// Load your classes
-require_once 'classes/LanguageGame.php';
-require_once 'classes/Word.php';
-require_once 'classes/Data.php';
-require_once 'classes/Player.php';
+// Load your controllers and models
+require_once 'controllers/GameController.php';
+require_once 'models/Player.php';
+require_once 'models/Word.php';
+require_once 'models/Data.php';
 
-
-// Start the game
-// Don't change anything in this file
-// The LanguageGame class will be your starting point
-$game = new LanguageGame();
-$randomKey = $game->getRandomKey();
-$message = $game->getMessage();
-$game->run();
-require 'view.php';
-?>
+// Start the game by delegating to the controller
+$controller = new GameController();
+$controller->run();
