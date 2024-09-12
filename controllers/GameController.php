@@ -1,7 +1,14 @@
 <?php
 
-require_once 'models/Word.php';
-require_once 'models/Player.php';
+declare(strict_types=1);
+
+namespace LanguageGame\Controllers;
+
+require_once __DIR__ . '/../models/Word.php';
+require_once __DIR__ . '/../models/Player.php';
+
+use LanguageGame\Models\Word;
+use LanguageGame\Models\Player;
 
 class GameController
 {
@@ -13,6 +20,11 @@ class GameController
     {
         session_start();  // Start the session to track data across requests
 
+        // If the user clicks the reset button, clear the session and start over
+        if (isset($_POST['reset'])) {
+            $this->resetGame();
+        }
+
         // If the request method is GET, reset the score to 0 (page reload or first visit)
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             // Reset the session for a new game (new score and word)
@@ -22,7 +34,7 @@ class GameController
 
         // Retrieve the player and word from the session
         $this->player = $_SESSION['player'];
-        $this->randomKey = $_SESSION['randomKey'];  // Load the current random word
+        $this->randomKey = $_SESSION['randomKey'];
         $this->message = '';
     }
 
@@ -60,7 +72,7 @@ class GameController
         } else {
             // Incorrect answer
             $correctAnswer = Word::getTranslation($this->randomKey);
-            $this->message = "Wrong! The correct translation is: $correctAnswer. Try again!";
+            $this->message = "Wrong! The correct translation is: $correctAnswer";
             $this->player->decreaseScore();
         }
     }
@@ -69,5 +81,16 @@ class GameController
     {
         // Load the view with the necessary data
         require 'views/view.php';
+    }
+
+    private function resetGame(): void
+    {
+        // Clear the session to reset everything
+        session_destroy();
+        session_start();  // Restart the session after clearing it
+
+        // Redirect to the same page to restart the game
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit;
     }
 }

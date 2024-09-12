@@ -7,11 +7,11 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-// Load your controllers and models
-require_once 'controllers/GameController.php';
-require_once 'models/Player.php';
-require_once 'models/Word.php';
-require_once 'models/Data.php';
+
+require_once __DIR__ . '/controllers/GameController.php';
+
+use LanguageGame\Controllers\GameController;
+
 
 // Start the game by delegating to the controller
 $controller = new GameController();

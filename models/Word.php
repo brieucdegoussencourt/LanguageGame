@@ -1,7 +1,11 @@
 <?php
 
 declare(strict_types=1);
-use LanguageGame\Classes\Data;
+
+namespace LanguageGame\Models;
+
+// Manually include the Data.php file
+require_once __DIR__ . '/Data.php';
 
 class Word
 {
