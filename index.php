@@ -9,16 +9,18 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 // Load your classes
-require_once 'classes/Data.php';
 require_once 'classes/LanguageGame.php';
-require_once 'classes/Player.php';
 require_once 'classes/Word.php';
+require_once 'classes/Data.php';
+require_once 'classes/Player.php';
+
 
 // Start the game
 // Don't change anything in this file
 // The LanguageGame class will be your starting point
 $game = new LanguageGame();
+$randomKey = $game->getRandomKey();
+$message = $game->getMessage();
 $game->run();
-
 require 'view.php';
 ?>
