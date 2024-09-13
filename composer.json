@@ -1,0 +1,18 @@
+{
+    "name": "brieuc/languagegame",
+    "description": "A simple Language Game designed with PHP and MVC architecture",
+    "require": {
+        "php": "8.3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brieuc\\Languagegame\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "brieucdegoussencourt",
+            "email": "brieuc.degoussencourt@gmail.com"
+        }
+    ]
+}
