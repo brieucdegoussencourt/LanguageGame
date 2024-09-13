@@ -64,3 +64,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## 🌐 Live Demo
 
 The project is live on **Heroku**: [Language Game](https://brieuc-language-game-905a4a54f0ba.herokuapp.com/).
+
+![screenshot](./screenshots/Screenshot1.png)
