@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Welcome to the Language Game!</h1>
-    <p>Please enter your nickname to start the quiz:</p>
+    <p>Please enter your nickname to start the game:</p>
 
     <form method="POST" action="">
         <input type="text" name="nickname" required placeholder="Enter your nickname">

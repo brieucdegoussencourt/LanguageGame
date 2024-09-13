@@ -22,9 +22,6 @@ class Player
 
     public function decreaseScore(): void
     {
-        // Ensure the score does not go below 0 if you want a lower limit
-        if ($this->score > 0) {
-            $this->score--;
-        }
+        $this->score--;
     }
 }
